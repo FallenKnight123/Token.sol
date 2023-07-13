@@ -9,13 +9,35 @@ Installing:
 Since this is a smart contract written in Solidity, there is no need for installation in the traditional sense. You would need to have a development environment with a Solidity compiler (e.g., Remix, Truffle) set up to compile and deploy the contract.
 
 Executing program:
-To run the program, follow these steps:
 
-Set up a Solidity development environment (e.g., Remix, Truffle).
-Create a new Solidity file and name it "MyToken.sol".
-Copy and paste the provided code into the "MyToken.sol" file.
-Compile the contract using the Solidity compiler.
-Deploy the contract to the desired Ethereum network (e.g., local development network, testnet, mainnet).
-Note: The execution steps mentioned above assume familiarity with Solidity development and the use of a Solidity development environment.
+To run this program, you can use Remix, an online Solidity IDE. To get started, go to the Remix website at https://remix.ethereum.org/.
 
-Code:
+Once you are on the Remix website, create a new file by clicking on the "+" icon in the left-hand sidebar. Save the file with a .sol extension (e.g., HelloWorld.sol). Copy and paste the following code into the file
+
+contract MyToken {
+    // public variables here
+    string public TokenName = "META";
+    string public TokenAbbrv = "MTA";
+    uint public totalSupply = 0;
+    
+    // mapping variable here
+    mapping(address => uint) public balances;
+
+    // mint function
+    function mint(address _address, uint _value) public {
+        totalSupply += _value;
+        balances[_address] += _value;
+    }
+    
+    // burn function
+    function burn(address _address, uint _value) public {
+        if (balances[_address] >= _value){
+            totalSupply -= _value;
+            balances[_address] -= _value;
+        }
+    }
+}
+
+
+
+
