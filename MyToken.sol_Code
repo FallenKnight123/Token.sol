@@ -17,24 +17,24 @@ pragma solidity 0.8.18;
 
 contract MyToken {
 // public variables
-    string public TokenName = "META"; // Public variable to store the name of the token
-    string public TokenAbbrv = "MTA"; // Public variable to store the abbreviation of the token
-    uint public totalSupply = 0; // Public variable to store the total supply of the token
+    string public TokenName = "CryptoCoin"; 
+    string public TokenAbbrv = "CptC"; 
+    uint public totalSupply = 0; 
 
 // mapping variable 
-    mapping(address => uint) public balances; // Mapping to store the balances of addresses
+    mapping(address => uint) public balances; 
 
 
 // Mint function to increase the total supply and the balance of a specific address
     function mint(address _address, uint _value) public {
-        totalSupply += _value; // Increase the total supply by the given value
-        balances[_address] += _value; // Increase the balance of the given address by the given value
+        totalSupply += _value; 
+        balances[_address] += _value;
     }
 // Burn function to decrease the total supply and the balance of a specific address
     function burn(address _address, uint _value) public {
         if (balances[_address] >= _value) {
-            totalSupply -= _value; // Decrease the total supply by the given value
-            balances[_address] -= _value; // Decrease the balance of the given address by the given value
+            totalSupply -= _value; 
+            balances[_address] -= _value; 
         }
     }
 }
