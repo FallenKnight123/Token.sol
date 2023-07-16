@@ -24,12 +24,12 @@ Once you are on the Remix website, create a new file by clicking on the "+" icon
          mapping(address => uint) public balances; 
      
      
-     // Mint function to increase the total supply and the balance of a specific address
+     // Mint function
          function mint(address _address, uint _value) public {
              totalSupply += _value; 
              balances[_address] += _value;
          }
-     // Burn function to decrease the total supply and the balance of a specific address
+     // Burn function
          function burn(address _address, uint _value) public {
              if (balances[_address] >= _value) {
                  totalSupply -= _value; 
